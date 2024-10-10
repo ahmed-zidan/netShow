@@ -1,0 +1,13 @@
+.app-title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto; /* This makes the spacer take all available space */
+}
+
+mat-toolbar *{
+  color: #E50914;
+}

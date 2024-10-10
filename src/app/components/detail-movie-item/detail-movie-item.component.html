@@ -1,0 +1,26 @@
+@if (movie) {
+<div class="row p-5">
+  <div class="col-lg-4">
+    <img src="{{movie.Poster}}" class="img-fluid" alt="">
+  </div>
+  <div class="col-lg-8 p-4">
+    <h1 class="mt-2 mb-2">{{movie.Title}}</h1>
+    <p class="mt-3 mb-3">Plot: {{movie.Plot}}</p>
+    <p class="mt-3 mb-3">Director: {{movie.Director}}</p>
+    <p class="mt-3 mb-3">Country: {{movie.Country}}| Released: {{movie.Released}} | Year: {{movie.Year}}</p>
+    <p class="mt-3 mb-3">Actors: {{movie.Actors}}</p>
+    <p class="mt-3 mb-3">Production: {{movie.Production}}</p>
+    <p class="mt-3 mb-3">Type: {{movie.Type}} | Genre: {{movie.Genre}} | Language: {{movie.Language}}</p>
+    <p class="mt-3 mb-3">Runtime: {{movie.Runtime}}</p>
+    <p class="mt-3 mb-3">Rated: {{movie.Rated}}</p>
+    <p class="mt-3 mb-3">Awards: {{movie.Awards}}</p>
+    <h3>Ratings</h3>
+    <ul>
+    @for (item of movie.Ratings; track $index) {
+      <li class="mt-3 mb-3">{{item.Source}}: {{item.Value}}</li>
+    }
+  </ul>
+
+  </div>
+</div>
+}

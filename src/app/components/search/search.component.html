@@ -1,0 +1,33 @@
+<div class="container-fluid mt-5 p-5">
+  <div class="row">
+  <form [formGroup]="form" (ngSubmit)="searchForMovies()" >
+    <mat-form-field class="example-full-width w-100">
+      <mat-label>Search Movie Here</mat-label>
+      <input matInput style="width: 75%;" formControlName = "movieName">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      @if (form.get("movieName")?.hasError('required')) {
+        <mat-error>
+          Email is <strong>required</strong>
+        </mat-error>
+      }
+      <button mat-icon-button [disabled]="form.invalid" class="float-end"><mat-icon>search</mat-icon></button>
+    </mat-form-field>
+
+  </form>
+  </div>
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="row">
+        @if (movieDetail && movieDetail.Genre) {
+        <div class="col-lg-3">
+          <img src="{{movieDetail.Poster}} " class="w-100">
+        </div>
+        <div class="col-lg-9">
+          <h1>{{movieDetail.Title}}</h1>
+          <a class="btnShowDetails" [routerLink]="['/Movie/', movieDetail.Title]" mat-flat-button>Show Details</a>
+        </div>
+      }
+      </div>
+    </div>
+  </div>
+</div>

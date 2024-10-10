@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<div id="carouselExampleAutoplaying" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="1000">
+  <div class="carousel-inner">
+    @if (movies&&movies.Search) {
+    @for (item of movies.Search; track $index) {
+      <div class="carousel-item" [class.active]="$index===0">
+        <img src="{{item.Poster}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>{{item.Title}}</h2>
+          <p>Type Of The Movie: {{item.Type}} | This Movie Made In The Year: {{item.Year}}</p>
+        </div>
+      </div>
+    }
+  }
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+<div class="container" class="mt-2 p-4">
+  <div class="row">
+    <h2 class="text-white">Trending Movies</h2>
+
+    <div class="rowposter">
+      @if (trendingMovies && trendingMovies.Search) {
+      @for (item of trendingMovies.Search; track $index) {
+        <a [routerLink]="['/Movie/', item.Title]">
+        <img src="{{item.Poster}}" class="w-100" alt="..."
+        class="rowing largeposter">
+        </a>
+      }
+    }
+    </div>
+
+  </div>
+</div>
